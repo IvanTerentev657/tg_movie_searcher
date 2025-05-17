@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 from googlesearch import search
+import asyncio
 
 
 class AiSearcher:
