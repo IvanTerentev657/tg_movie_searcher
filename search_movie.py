@@ -45,6 +45,7 @@ class AiSearcher:
     @staticmethod
     async def get_movie_link(title: str):
         request = f"Фильм {title} смотреть онлайн"
+        print(request)
 
         with DDGS() as ddgs:
             results = ddgs.text(request, max_results=1)
