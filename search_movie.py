@@ -50,6 +50,7 @@ class AiSearcher:
             loop = asyncio.get_running_loop()
             return await loop.run_in_executor(lambda: next(search(request, num_results=1, unique=True), None))
         except Exception:
+            print(Exception)
             return "❗️Ссылка не найдена"
 
     @staticmethod
