@@ -43,15 +43,14 @@ class AiSearcher:
             self.current_model = model
 
     @staticmethod
-    async def get_movie_link(title: str):
-        request = f"Фильм {title} смотреть онлайн"
-        print(request)
+    async def get_movie_link(title: str) -> str:
+    try:
+        request = f"Фильм {title.upper()} смотреть онлайн"
 
-        with DDGS() as ddgs:
-            results = ddgs.text(request, max_results=1)
-            for r in results:
-                return r["href"]
-        return "❗️ Ссылка не найдена"
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(lambda: next(search(request, num_results=1, unique=True), None))
+    except Exception:
+        return "❗️Ссылка не найдена"
 
     @staticmethod
     def get_only_title_prompt(query) -> str:
