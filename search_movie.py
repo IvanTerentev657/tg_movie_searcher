@@ -49,7 +49,7 @@ class AiSearcher:
             request = f"Фильм {title.upper()} смотреть онлайн"
     
             loop = asyncio.get_running_loop()
-            return await loop.run_in_executor(None, lambda: next(search(query, num_results=1, unique=True), None))
+            return await loop.run_in_executor(None, lambda: next(search(request, num_results=1, unique=True), None))
         except Exception as e:
             print(e)
             return "❗️Ссылка не найдена"
