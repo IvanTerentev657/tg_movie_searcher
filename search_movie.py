@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from openai import AsyncOpenAI
 
-from duckduckgo_search import DDGS
+from googlesearch import search
 
 
 class AiSearcher:
